@@ -5,7 +5,7 @@ import pickle
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
 
-@app.route('/')
+@application.route('/')
 def home():
     return render_template('index.html')
 
@@ -24,4 +24,4 @@ def predict():
     return render_template('index.html', prediction_text='Your Marriage Age is: {}'.format(output))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
