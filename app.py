@@ -2,10 +2,10 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
 
-application = Flask(__name__)
+app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
 
-@application.route('/')
+@app.route('/')
 def home():
     return render_template('index.html')
 
@@ -24,4 +24,4 @@ def predict():
     return render_template('index.html', prediction_text='Your Marriage Age is: {}'.format(output))
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    app.run(debug=True)
